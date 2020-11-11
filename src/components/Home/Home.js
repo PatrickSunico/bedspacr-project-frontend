@@ -4,7 +4,7 @@ import "./Home.scss";
 const Home = () => {
   return (
     <div>
-      <h1 className="test">Niig</h1>
+      <h1 className="text-red-300">Niig</h1>
     </div>
   );
 };
