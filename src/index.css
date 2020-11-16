@@ -1,8 +1,37 @@
+@font-face {
+  font-family: "LeagueSpartan";
+  font-style: normal;
+  font-weight: bold;
+  src: local("LeagueSpartan"), url(./fonts/LeagueSpartan.woff) format("woff");
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"), url(./fonts/Avenir-Light.woff) format("woff");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"), url(./fonts/Avenir-Medium.woff) format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"), url(./fonts/Avenir-Heavy.woff) format("woff");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir"), url(./fonts/Avenir-Heavy.woff) format("woff");
+  font-weight: 900;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Avenir", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
