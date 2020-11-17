@@ -1,8 +1,6 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
-
-// import BedspacrLogo from "../../img/bedspacr-logo.png";
 
 import { ReactComponent as BedspacrLogo } from "../../img/bedspacr-logo.svg";
 import { ReactComponent as Search } from "../../img/search.svg";
@@ -11,9 +9,9 @@ function Navbar() {
   return (
     <nav className=" flex items-center justify-between flex-wrap bg-white p-4 border-b border-gray-200">
       <div className=" flex flex-1 items-center flex-shrink-0 text-white mr-2 w-full">
-        <a className="flex-2" href="/">
+        <Link className="flex-2" to="/">
           <BedspacrLogo />
-        </a>
+        </Link>
         <div className="flex-1 w-full sm:w-full md:w-full lg:w-3/4 xl:w-3/4">
           <form className="mr-3 ml-3 flex flex-row ">
             <input
@@ -49,39 +47,33 @@ function Navbar() {
       </div>
       <div className=" w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div className=" lg:flex-grow">
-          <a
+          <Link
             className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-            href="/buy"
+            to="/buy"
           >
             Buy
-          </a>
+          </Link>
 
-          <a
+          <Link
             className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-            href="/sell"
+            to="/sell"
           >
             Sell
-          </a>
+          </Link>
         </div>
         <div className="">
-          <a
+          <Link
             className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-            href="/login"
+            to="/login"
           >
             Login
-          </a>
-          <a
+          </Link>
+          <Link
             className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-            href="/register"
+            to="/register"
           >
             Signup
-          </a>
-          <a
-            href="#responsive-header"
-            className="block mt-4 lg:inline-block lg:mt-0  hover:text-gray-800 nav-links"
-          >
-            Blog
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

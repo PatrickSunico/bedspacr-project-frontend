@@ -1,6 +1,8 @@
 import React from "react";
 import "./Home.scss";
 
+import { Link } from "react-router-dom";
+
 import Landing from "../../img/landing.jpg";
 
 // Images
@@ -221,12 +223,12 @@ const Home = () => {
             <div className="w-full lg:w-1/2 mt-8 flex lg:flex-shrink-0 lg:mt-0">
               <div className="users-signup-grid">
                 <div className="mt-4 ">
-                  <a
-                    href="/"
+                  <Link
+                    to="/register"
                     className="block mt-1 text-3xl leading-tight font-semibold primary-color-text hover:underline"
                   >
                     Tenants
-                  </a>
+                  </Link>
                   <p className="mt-2 text-gray-600">
                     Getting a new business off the ground is a lot of hard work.
                     Here are five ideas you can use to find your first
@@ -235,12 +237,12 @@ const Home = () => {
                 </div>
 
                 <div className="mt-4 ">
-                  <a
-                    href="/"
+                  <Link
+                    to="/register"
                     className="block mt-1 text-3xl leading-tight font-semibold primary-color-text hover:underline"
                   >
                     Landlords
-                  </a>
+                  </Link>
                   <p className="mt-2 text-gray-600">
                     Getting a new business off the ground is a lot of hard work.
                     Here are five ideas you can use to find your first
@@ -249,12 +251,12 @@ const Home = () => {
                 </div>
 
                 <div className="mt-4 ">
-                  <a
-                    href="/"
+                  <Link
+                    to="/register"
                     className="block mt-1 text-3xl leading-tight font-semibold primary-color-text hover:underline"
                   >
                     Agents
-                  </a>
+                  </Link>
                   <p className="mt-2 text-gray-600">
                     Getting a new business off the ground is a lot of hard work.
                     Here are five ideas you can use to find your first
