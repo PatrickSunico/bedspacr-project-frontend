@@ -26,7 +26,7 @@ const Login = () => {
       </div>
 
       {/* Right */}
-      <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 bg-gray-200">
+      <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/2 bg-gray-100">
         <div className="overflow-hidden flex justify-center p-8 h-full items-center flex-col  mt-0 sm:mt-10 md:mt-0 xl:mt-0">
           <h3 className="ml-auto mr-auto text-center mb-10 text-3xl xl:text-4xl font-black">
             Sign In to your

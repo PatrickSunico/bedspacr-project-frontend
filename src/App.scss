@@ -47,3 +47,27 @@
 }
 
 // Fonts
+
+// Divider
+.divider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #a2a2a2;
+  &:before {
+    content: "";
+    height: 0.105em;
+    background: #f1f1f1;
+    flex: 1;
+    margin: 0 0.25em 0 0;
+  }
+  &:after {
+    content: "";
+    height: 0.105em;
+    background: #f1f1f1;
+    flex: 1;
+    margin: 0 0 0 0.25em;
+  }
+}
