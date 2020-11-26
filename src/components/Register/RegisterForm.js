@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Login.scss";
+
+import "./Register.scss";
 
 // Form Components
+import { Link } from "react-router-dom";
 import Input from "../Global/Input/Input";
 import Checkbox from "../Global/Checkbox/Checkbox";
 import Button from "../Global/Button/Button";
@@ -11,23 +12,44 @@ import Button from "../Global/Button/Button";
 import { ReactComponent as GoogleLogin } from "../../img/google.svg";
 import { ReactComponent as FacebookLogin } from "../../img/facebook.svg";
 
-const onChange = async (event) => {
-  const { target } = event;
-  console.log(target);
-};
-
-const LoginForm = () => {
+const RegisterForm = () => {
+  const onChange = async (event) => {
+    // const { target } = event;
+    // console.log(target);
+  };
   return (
     <div className="w-full max-w-lg">
       <form>
         <div className="flex flex-wrap">
+          <div className="flex flex-row w-full justify-between">
+            <Input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
+              onChange={(e) => onChange(e)}
+              label="First Name"
+              placeholder="First Name"
+              name="first_name"
+              type="text"
+              required
+            />
+
+            <Input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
+              label="Last Name"
+              placeholder="Last Name"
+              name="last_name"
+              type="text"
+              onChange={(e) => onChange(e)}
+              required
+            />
+          </div>
+
           <Input
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
-            onChange={(e) => onChange(e)}
-            label="Email Address"
-            placeholder="Email"
+            label="Email"
+            placeholder="Email Address"
             name="email"
             type="email"
+            onChange={(e) => onChange(e)}
             required
           />
 
@@ -36,6 +58,16 @@ const LoginForm = () => {
             label="Password"
             placeholder="Password"
             name="password"
+            type="password"
+            onChange={(e) => onChange(e)}
+            required
+          />
+
+          <Input
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
+            label="Confirm Password"
+            placeholder="Confirm Password"
+            name="repeat_password"
             type="password"
             onChange={(e) => onChange(e)}
             required
@@ -50,20 +82,11 @@ const LoginForm = () => {
               onChange={(e) => onChange(e)}
               disabled={false}
             />
-
-            <Link
-              to="/"
-              className="md:w-1/2 block text-gray-500 font-bold text-right"
-            >
-              <span className="text-sm primary-color-text font-thin">
-                Forgot Password
-              </span>
-            </Link>
           </div>
 
           <div className="w-full px-3 mb-4">
             <Button className="h-12 w-full text-white font-bold py-3 px-3 rounded login-button primary-color-bg login-button">
-              Login
+              Sign Up
             </Button>
           </div>
         </div>
@@ -72,27 +95,29 @@ const LoginForm = () => {
       <div className="w-full px-3 mb-4">
         <Button className="h-12 w-full py-3 px-3 rounded inline-flex items-center bg-white">
           <GoogleLogin />
-          <span className="flex-1 mr-4 text-gray-800">Login to Google</span>
+          <span className="flex-1 mr-4 text-gray-800">Sign up with Google</span>
         </Button>
       </div>
 
       <div className="w-full px-3 mb-4">
         <Button className="h-12 w-full py-3 px-3 rounded inline-flex items-center bg-white">
           <FacebookLogin />
-          <span className="flex-1 mr-4 text-gray-800">Login to Facebook</span>
+          <span className="flex-1 mr-4 text-gray-800">
+            Sign up with Facebook
+          </span>
         </Button>
       </div>
 
       <div className="w-full px-3 mb-4 divider">OR</div>
 
       <p className="w-full text-center register-link">
-        Dont have an account?
-        <Link to="/register" className=" ml-2 underline primary-color-text">
-          Register
+        Already Registered?
+        <Link to="/login" className=" ml-2 underline primary-color-text">
+          Login
         </Link>
       </p>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

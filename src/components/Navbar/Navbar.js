@@ -7,7 +7,7 @@ import { ReactComponent as Search } from "../../img/search.svg";
 
 function Navbar() {
   return (
-    <nav className=" flex items-center justify-between flex-wrap bg-white p-4 border-b border-gray-200">
+    <nav className="fixed z-50 w-full flex items-center justify-between flex-wrap bg-white p-4 border-b border-gray-200">
       <div className=" flex flex-1 items-center flex-shrink-0 text-white mr-2 w-full">
         <Link className="flex-2" to="/">
           <BedspacrLogo />

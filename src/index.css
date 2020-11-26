@@ -6,26 +6,26 @@
 }
 
 @font-face {
-  font-family: "Avenir";
+  font-family: "Avenir-Light";
   src: local("Avenir"), url(./fonts/Avenir-Light.woff) format("woff");
   font-weight: 100;
 }
 
 @font-face {
-  font-family: "Avenir";
+  font-family: "Avenir-Medium";
   src: local("Avenir"), url(./fonts/Avenir-Medium.woff) format("woff");
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Avenir";
+  font-family: "Avenir-Heavy";
   src: local("Avenir"), url(./fonts/Avenir-Heavy.woff) format("woff");
   font-weight: 600;
 }
 
 @font-face {
-  font-family: "Avenir";
-  src: local("Avenir"), url(./fonts/Avenir-Heavy.woff) format("woff");
+  font-family: "Avenir-Black";
+  src: local("Avenir"), url(./fonts/Avenir-Black.woff) format("woff");
   font-weight: 900;
 }
 
@@ -36,6 +36,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tailwind Font Extensions */
+
+.font-light {
+  font-family: "Avenir-Light";
+}
+
+.font-medium {
+  font-family: "Avenir-Medium";
+}
+
+.font-semibold {
+  font-family: "Avenir-Heavy";
+}
+
+.font-black {
+  font-family: "Avenir-Black";
 }
 
 code {

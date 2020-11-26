@@ -66,10 +66,10 @@ const Home = () => {
       <div className="py-24 bg-white">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div>
-            <p class="text-base leading-6 font-semibold tracking-wide uppercase">
+            <p className="text-base leading-6 font-semibold tracking-wide uppercase">
               ABOUT BEDSPACR
             </p>
-            <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+            <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
               A Better way of finding your next home
             </h3>
           </div>
@@ -142,16 +142,16 @@ const Home = () => {
       <div className="py-24 image-grid-bg">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
           <div>
-            <p class="text-base leading-6 font-semibold tracking-wide uppercase">
+            <p className="text-base leading-6 font-semibold tracking-wide uppercase">
               Find Properties in your cities
             </p>
-            <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+            <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
               Explore Cities
             </h3>
           </div>
         </div>
         <div className="gallery mx-auto mb-10 px-4 md:px-4 lg:px-4 xl:px-0">
-          <div class="card card--1">
+          <div className="card card--1">
             <img src={Chicago420} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
@@ -159,7 +159,7 @@ const Home = () => {
               <p className="font-lg">Tinley Park</p>
             </figcaption>
           </div>
-          <div class="card card--2">
+          <div className="card card--2">
             <img src={CaliforniaLong} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
@@ -167,7 +167,7 @@ const Home = () => {
               <p className="font-lg">Orange County</p>
             </figcaption>
           </div>
-          <div class="card card--3">
+          <div className="card card--3">
             <img src={PittsburghSmall} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
@@ -175,7 +175,7 @@ const Home = () => {
               <p className="font-lg">Boggs Ave</p>
             </figcaption>
           </div>
-          <div class="card card--4">
+          <div className="card card--4">
             <img src={DenverLong} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
@@ -183,7 +183,7 @@ const Home = () => {
               <p className="font-lg">Glendale</p>
             </figcaption>
           </div>
-          <div class="card card--5">
+          <div className="card card--5">
             <img src={DenverSmall} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
 
@@ -192,7 +192,7 @@ const Home = () => {
               <p className="font-lg">San Francisco</p>
             </figcaption>
           </div>
-          <div class="card card--6">
+          <div className="card card--6">
             <img src={PittsBurghSmall} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
 
