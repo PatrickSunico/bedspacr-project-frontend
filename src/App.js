@@ -11,7 +11,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
-import Dashboard from "./components/User Dashboard/Dashboard";
+import PropertyListing from "./components/Property Listing/PropertyListing";
+// import Dashboard from "./components/User Dashboard/Dashboard";
 
 const App = () => {
   return (
@@ -23,7 +24,11 @@ const App = () => {
         <Switch>
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route
+            exact
+            path="/dashboard/property-listings"
+            component={PropertyListing}
+          />
         </Switch>
       </div>
     </Router>
