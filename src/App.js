@@ -12,6 +12,7 @@ import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import PropertyListing from "./components/Property Listing/PropertyListing";
+import DashboardDetails from "./components/Dashboard Listing Details/DashboardDetails";
 // import Dashboard from "./components/User Dashboard/Dashboard";
 
 const App = () => {
@@ -28,6 +29,12 @@ const App = () => {
             exact
             path="/dashboard/property-listings"
             component={PropertyListing}
+          />
+
+          <Route
+            exact
+            path="/dashboard/property-details"
+            component={DashboardDetails}
           />
         </Switch>
       </div>
