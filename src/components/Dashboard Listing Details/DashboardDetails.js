@@ -1,25 +1,25 @@
-import React from "react";
-import "./DashboardDetails.scss";
+import React from 'react';
+import './DashboardDetails.scss';
 
 // Global Components
-import SideNav from "../Global/SideNav/SideNav";
-import DashboardSelector from "../Global/DashboardSelector/DashboardSelector";
-import Button from "../Global/Button/Button";
+import SideNav from '../Global/SideNav/SideNav';
+import DashboardSelector from '../Global/DashboardSelector/DashboardSelector';
+import Button from '../Global/Button/Button';
 
 // Images
-import PropertyDetailsImage from "../../img/property-gallery/main-property-image.jpg";
-import PropertyGallery1 from "../../img/property-gallery/property-gallery-1.jpg";
-import PropertyGallery2 from "../../img/property-gallery/property-gallery-2.jpg";
-import PropertyGallery3 from "../../img/property-gallery/property-gallery-3.jpg";
+import PropertyDetailsImage from '../../img/property-gallery/main-property-image.jpg';
+import PropertyGallery1 from '../../img/property-gallery/property-gallery-1.jpg';
+import PropertyGallery2 from '../../img/property-gallery/property-gallery-2.jpg';
+import PropertyGallery3 from '../../img/property-gallery/property-gallery-3.jpg';
 
 // Icons
-import { ReactComponent as Apartment } from "../../img/icons/apartment.svg";
-import { ReactComponent as Bathtub } from "../../img/icons/bathtub.svg";
-import { ReactComponent as Bedroom } from "../../img/icons/bed.svg";
-import { ReactComponent as SQFT } from "../../img/icons/floor-plan.svg";
+import { ReactComponent as Apartment } from '../../img/icons/apartment.svg';
+import { ReactComponent as Bathtub } from '../../img/icons/bathtub.svg';
+import { ReactComponent as Bedroom } from '../../img/icons/bed.svg';
+import { ReactComponent as SQFT } from '../../img/icons/floor-plan.svg';
 
 // Property Listing Card
-import { ReactComponent as Plus } from "../../img/plus.svg";
+import { ReactComponent as Plus } from '../../img/plus.svg';
 
 const DashboardDetails = () => {
   return (
@@ -39,13 +39,13 @@ const DashboardDetails = () => {
 
             {/* Property Details */}
             <div className="py-10">
-              <div className="flex flex-col md:flex-col lg:flex-col xl:flex-row overflow-hidden justify-between">
+              <div className="flex property-details-mainwrapper overflow-hidden justify-between">
                 {/* Property Details Wrapper */}
-                <div className="w-full xl:w-8/12 bg-white p-6 rounded-md sm:mr-4 sm:mr-4 md:mr-4 lg:mr-6 xl:mr-6">
+                <div className="w-full property-details-container  xl:w-8/12 bg-white p-6 rounded-md sm:mr-4 sm:mr-4 md:mr-4 lg:mr-6 xl:mr-6">
                   {/* Property Details */}
-                  <div className="flex flex-row">
+                  <div className=" flex flex-row">
                     <div className="fixed-image">
-                      <img src={PropertyDetailsImage} aLt="property-details" />
+                      <img src={PropertyDetailsImage} alt="property-details" />
                     </div>
 
                     {/* Title Price, State */}
@@ -66,40 +66,65 @@ const DashboardDetails = () => {
                       </div>
 
                       {/* Details Icons */}
-                      <div className="flex flex-row justify-between items-start">
-                        <div className="flex flex-col items-center h-16">
+                      {/* <div className="flex flex-row justify-between items-start">
+                        <div className="flex flex-col items-center h-16 px-2">
                           <Apartment className="m-auto" />
                           <h3>Apartment</h3>
                         </div>
-                        <div className="flex flex-col items-center h-16">
+                        <div className="flex flex-col items-center h-16 px-2">
                           <Bathtub className="m-auto" />
                           <h3>Bathroom</h3>
                         </div>
-                        <div className="flex flex-col items-center h-16">
+                        <div className="flex flex-col items-center h-16 px-2">
                           <Bedroom className="m-auto" />
                           <h3>Bedroom</h3>
                         </div>
-                        <div className="flex flex-col items-center h-16">
+                        <div className="flex flex-col items-center h-16 px-2">
                           <SQFT className="m-auto" />
                           <h3>Sqft</h3>
                         </div>
-                      </div>
-
-                      {/* Gallery */}
+                      </div> */}
                     </div>
                   </div>
+
+                  {/* Gallery */}
+                  {/* <div className="gallery-container flex flex-row justify-between">
+                    <div className="gallery-col">
+                      <img className="" src={PropertyGallery1} alt="property" />
+                    </div>
+                    <div className="gallery-col">
+                      <img className="" src={PropertyGallery2} alt="property" />
+                    </div>
+                    <div className="gallery-col">
+                      <img className="" src={PropertyGallery3} alt="property" />
+                    </div>
+                    <div className="gallery-col">View All</div>
+                  </div> */}
                 </div>
 
                 {/* Agent & Tenants Wrapper */}
-                <div className="w-full xl:w-4/12">
+                <div className="w-full agents-tenants-container xl:w-4/12">
                   {/* Agent  */}
-                  <div className="bg-white p-6 rounded-md mb-4 mt-4 md:mt-4 xl:mt-0 sm:mb-4 md:mb-4 lg:mb-6 xl:mb-6">
+                  <div className="bg-white p-6 rounded-md agents-container">
                     <h3 className="text-xl font-semibold text-gray-700">
                       Agents
                     </h3>
+
+                    <div className="flex flex-col">
+                      <div className="flex flex-row">
+                        <div className="placeholder-image">
+                          <p>PS</p>
+                        </div>
+                        <div className="agent-details">
+                          <h3>Agent Name</h3>
+                          <p>Phone</p>
+                          <p>Email</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   {/* Tenants */}
-                  <div className="bg-white p-6 rounded-md">
+                  <div className="bg-white p-6 rounded-md tenants-container">
                     <h3 className="text-xl font-semibold text-gray-700">
                       Tenants
                     </h3>
