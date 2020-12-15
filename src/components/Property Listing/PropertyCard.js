@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PropertyCard = ({ img }) => {
   return (
     <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/4 flex flex-col p-3">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
         <div className="bg-cover h-64">
-          <img src={img} />
+          <img src={img} alt="property-listing" />
         </div>
         <div className="flex-1 flex flex-col">
           <div className="px-4 py-3 border-b">

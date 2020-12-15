@@ -1,32 +1,32 @@
-import React from "react";
-import "./Home.scss";
+import React from 'react';
+import './Home.scss';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import Landing from "../../img/landing.jpg";
+import Landing from '../../img/landing.jpg';
 
 // Images
 // 420x225 3x3 Grid
-import Chicago420 from "../../img/chicago-420x225.jpg";
+import Chicago420 from '../../img/chicago-420x225.jpg';
 
 // // 314 x 520 Long
 
-import CaliforniaLong from "../../img/california-314x520.jpg";
-import DenverLong from "../../img/denver-314x520.jpg";
+import CaliforniaLong from '../../img/california-314x520.jpg';
+import DenverLong from '../../img/denver-314x520.jpg';
 
 // // 314x247 Smaller
-import PittsburghSmall from "../../img/pittsburgh-314x247.jpg";
-import DenverSmall from "../../img/denver-314x247.jpg";
-import PittsBurghSmall from "../../img/pittsburgh-314x247.jpg";
+import PittsburghSmall from '../../img/pittsburgh-314x247.jpg';
+import DenverSmall from '../../img/denver-314x247.jpg';
+import PittsBurghSmall from '../../img/pittsburgh-314x247.jpg';
 
 // Logos
-import { ReactComponent as Search } from "../../img/search.svg";
-import { ReactComponent as House } from "../../img/house.svg";
-import { ReactComponent as Check } from "../../img/check.svg";
-import { ReactComponent as Share } from "../../img/share.svg";
+import { ReactComponent as Search } from '../../img/search.svg';
+import { ReactComponent as House } from '../../img/house.svg';
+import { ReactComponent as Check } from '../../img/check.svg';
+import { ReactComponent as Share } from '../../img/share.svg';
 
 // Components
-import Footer from "../Footer/Footer";
+import Footer from '../Footer/Footer';
 
 const Home = () => {
   return (
@@ -150,40 +150,40 @@ const Home = () => {
             </h3>
           </div>
         </div>
-        <div className="gallery mx-auto mb-10 px-4 md:px-4 lg:px-4 xl:px-0">
-          <div className="card card--1">
+        <div className="masonry-gallery mx-auto mb-10 px-4 md:px-4 lg:px-4 xl:px-0">
+          <Link to="/" className="card card--1">
             <img src={Chicago420} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
               <h1 className="font-bold text-3xl">Chicago</h1>
               <p className="font-lg">Tinley Park</p>
             </figcaption>
-          </div>
-          <div className="card card--2">
+          </Link>
+          <Link to="/" className="card card--2">
             <img src={CaliforniaLong} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
               <h1 className="font-bold text-3xl">California</h1>
               <p className="font-lg">Orange County</p>
             </figcaption>
-          </div>
-          <div className="card card--3">
+          </Link>
+          <Link to="/" className="card card--3">
             <img src={PittsburghSmall} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
               <h1 className="font-bold text-3xl">Pittsburgh</h1>
               <p className="font-lg">Boggs Ave</p>
             </figcaption>
-          </div>
-          <div className="card card--4">
+          </Link>
+          <Link to="/" className="card card--4">
             <img src={DenverLong} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
             <figcaption>
               <h1 className="font-bold text-3xl">Denver</h1>
               <p className="font-lg">Glendale</p>
             </figcaption>
-          </div>
-          <div className="card card--5">
+          </Link>
+          <Link to="/" className="card card--5">
             <img src={DenverSmall} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
 
@@ -191,8 +191,8 @@ const Home = () => {
               <h1 className="font-bold text-3xl">California</h1>
               <p className="font-lg">San Francisco</p>
             </figcaption>
-          </div>
-          <div className="card card--6">
+          </Link>
+          <Link to="/" className="card card--6">
             <img src={PittsBurghSmall} alt="Masonry Gallery" />
             <div className="bg-grid"></div>
 
@@ -200,7 +200,7 @@ const Home = () => {
               <h1 className="font-bold text-3xl">Atlanta</h1>
               <p className="font-lg">Georgia</p>
             </figcaption>
-          </div>
+          </Link>
         </div>
       </div>
 

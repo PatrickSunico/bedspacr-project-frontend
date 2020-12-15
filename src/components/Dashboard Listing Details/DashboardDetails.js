@@ -1,16 +1,21 @@
 import React from 'react';
 import './DashboardDetails.scss';
 
+// Link
+import { Link } from 'react-router-dom';
+
 // Global Components
 import SideNav from '../Global/SideNav/SideNav';
 import DashboardSelector from '../Global/DashboardSelector/DashboardSelector';
 import Button from '../Global/Button/Button';
 
+// Dashboard Components
+import DashboardImageGallery from '../Dashboard Listing Details/DashboardImageGallery';
+import DashboardAgentDetails from '../Dashboard Listing Details/DashboardAgentDetails';
+import DashboardTenants from '../Dashboard Listing Details/DashboardTenants';
+
 // Images
 import PropertyDetailsImage from '../../img/property-gallery/main-property-image.jpg';
-import PropertyGallery1 from '../../img/property-gallery/property-gallery-1.jpg';
-import PropertyGallery2 from '../../img/property-gallery/property-gallery-2.jpg';
-import PropertyGallery3 from '../../img/property-gallery/property-gallery-3.jpg';
 
 // Icons
 import { ReactComponent as Apartment } from '../../img/icons/apartment.svg';
@@ -28,7 +33,8 @@ const DashboardDetails = () => {
         <SideNav />
 
         <div className="main-body w-full bg-gray-200 pl-0 lg:pl-64 min-h-screen">
-          <div className="px-6 sm:px-10 md:px-10 lg:px-20 py-10">
+          {/* px-6 sm:px-10 md:px-20 lg:px-30 */}
+          <div className="max-w-max sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mx-auto px-4 sm:px-4 md:px-4 lg:px-20 xl:px-20 py-10">
             <div className="flex flex-row border-gray-400 border-b justify-between pb-4">
               <DashboardSelector classNames="text-small sm:text-2xl md:text-2xl lg:text-2xl" />
               <Button className="h-10 text-white font-medium px-3 rounded primary-color-bg flex flex-row items-center font-small lg:font-lg">
@@ -39,17 +45,21 @@ const DashboardDetails = () => {
 
             {/* Property Details */}
             <div className="py-10">
-              <div className="flex property-details-mainwrapper overflow-hidden justify-between">
+              <div className="flex property-details-mainwrapper overflow-hidden justify-between flex-col lg:flex-col xl:flex-row">
                 {/* Property Details Wrapper */}
                 <div className="w-full property-details-container  xl:w-8/12 bg-white p-6 rounded-md sm:mr-4 sm:mr-4 md:mr-4 lg:mr-6 xl:mr-6">
                   {/* Property Details */}
-                  <div className=" flex flex-row">
-                    <div className="fixed-image">
-                      <img src={PropertyDetailsImage} alt="property-details" />
+                  <div className="flex flex-col md:flex-col lg:flex-row xl:flex-row">
+                    <div className="fixed-image-container w-full">
+                      <img
+                        className="fixed-image"
+                        src={PropertyDetailsImage}
+                        alt="property-details"
+                      />
                     </div>
 
                     {/* Title Price, State */}
-                    <div className="px-6 flex-grow flex-col">
+                    <div className="px-6 flex-grow flex-col py-6 md:py-6 lg:py-0 xl:py-0">
                       <div className="flex flex-row mb-4">
                         <div className="w-full">
                           <h2 className="font-semibold text-2xl primary-color-text">
@@ -66,7 +76,7 @@ const DashboardDetails = () => {
                       </div>
 
                       {/* Details Icons */}
-                      {/* <div className="flex flex-row justify-between items-start">
+                      <div className="flex flex-row justify-between items-start">
                         <div className="flex flex-col items-center h-16 px-2">
                           <Apartment className="m-auto" />
                           <h3>Apartment</h3>
@@ -83,52 +93,21 @@ const DashboardDetails = () => {
                           <SQFT className="m-auto" />
                           <h3>Sqft</h3>
                         </div>
-                      </div> */}
+                      </div>
+                      {/* End */}
                     </div>
                   </div>
 
-                  {/* Gallery */}
-                  {/* <div className="gallery-container flex flex-row justify-between">
-                    <div className="gallery-col">
-                      <img className="" src={PropertyGallery1} alt="property" />
-                    </div>
-                    <div className="gallery-col">
-                      <img className="" src={PropertyGallery2} alt="property" />
-                    </div>
-                    <div className="gallery-col">
-                      <img className="" src={PropertyGallery3} alt="property" />
-                    </div>
-                    <div className="gallery-col">View All</div>
-                  </div> */}
+                  {/* Gallery Component */}
+                  <DashboardImageGallery />
                 </div>
 
                 {/* Agent & Tenants Wrapper */}
-                <div className="w-full agents-tenants-container xl:w-4/12">
+                <div className="w-full  agents-tenants-container xl:w-4/12">
                   {/* Agent  */}
-                  <div className="bg-white p-6 rounded-md agents-container">
-                    <h3 className="text-xl font-semibold text-gray-700">
-                      Agents
-                    </h3>
-
-                    <div className="flex flex-col">
-                      <div className="flex flex-row">
-                        <div className="placeholder-image">
-                          <p>PS</p>
-                        </div>
-                        <div className="agent-details">
-                          <h3>Agent Name</h3>
-                          <p>Phone</p>
-                          <p>Email</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <DashboardAgentDetails />
                   {/* Tenants */}
-                  <div className="bg-white p-6 rounded-md tenants-container">
-                    <h3 className="text-xl font-semibold text-gray-700">
-                      Tenants
-                    </h3>
-                  </div>
+                  <DashboardTenants />
                 </div>
               </div>
             </div>
