@@ -11,7 +11,14 @@
   color: #07b0b1;
 }
 
-// Fonts
+// Primary Gray
+.primary-gray-text {
+  color: #808080;
+}
+
+.primary-gray-color {
+  background-color: #efefef;
+}
 
 // Divider
 .divider {
@@ -22,14 +29,14 @@
   font-size: 14px;
   color: #a2a2a2;
   &:before {
-    content: "";
+    content: '';
     height: 0.105em;
     background: #f1f1f1;
     flex: 1;
     margin: 0 0.25em 0 0;
   }
   &:after {
-    content: "";
+    content: '';
     height: 0.105em;
     background: #f1f1f1;
     flex: 1;

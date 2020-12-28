@@ -38,20 +38,21 @@
   align-items: center;
 
   .view-all {
-    padding: 20px;
+    // padding: 20px;
     flex: 2;
+    height: 100%;
   }
 
   .gallery-col {
     border-radius: 6px;
-    // height: 100px;
-    // width: 100%;
+    height: 100px;
+    width: 100%;
     vertical-align: top;
     border-radius: 6px;
-    // img {
-    //   width: 100%;
-    //   height: auto;
-    // }
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .gallery-col:nth-child(2n) {
@@ -101,3 +102,18 @@
     }
   }
 }
+
+// .amenities-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+//   grid-template-rows: repeat(6, 200px);
+//   grid-gap: 1rem;
+//   grid-auto-flow: dense;
+// }
+
+// @media only screen and (min-width: 1400px) {
+//   .amenities-grid {
+
+//   }
+
+// }

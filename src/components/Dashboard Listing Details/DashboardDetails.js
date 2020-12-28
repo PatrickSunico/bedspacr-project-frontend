@@ -13,6 +13,7 @@ import Button from '../Global/Button/Button';
 import DashboardImageGallery from '../Dashboard Listing Details/DashboardImageGallery';
 import DashboardAgentDetails from '../Dashboard Listing Details/DashboardAgentDetails';
 import DashboardTenants from '../Dashboard Listing Details/DashboardTenants';
+import AmenitiesList from '../Dashboard Listing Details/AmenitiesList';
 
 // Images
 import PropertyDetailsImage from '../../img/property-gallery/main-property-image.jpg';
@@ -47,7 +48,7 @@ const DashboardDetails = () => {
             <div className="py-10">
               <div className="flex property-details-mainwrapper overflow-hidden justify-between flex-col lg:flex-col xl:flex-row">
                 {/* Property Details Wrapper */}
-                <div className="w-full property-details-container  xl:w-8/12 bg-white p-6 rounded-md sm:mr-4 sm:mr-4 md:mr-4 lg:mr-6 xl:mr-6">
+                <div className="w-full property-details-container  xl:w-9/12 bg-white p-6 rounded-md sm:mr-4 sm:mr-4 md:mr-4 lg:mr-6 xl:mr-6">
                   {/* Property Details */}
                   <div className="flex flex-col md:flex-col lg:flex-row xl:flex-row">
                     <div className="fixed-image-container w-full">
@@ -100,6 +101,9 @@ const DashboardDetails = () => {
 
                   {/* Gallery Component */}
                   <DashboardImageGallery />
+
+                  {/* Amenities */}
+                  <AmenitiesList />
                 </div>
 
                 {/* Agent & Tenants Wrapper */}

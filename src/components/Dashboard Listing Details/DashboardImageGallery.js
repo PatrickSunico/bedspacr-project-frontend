@@ -10,19 +10,19 @@ const DashboardImageGallery = () => {
   return (
     <div className="gallery-wrapper">
       <div className="gallery-container flex flex-row items-center align-center">
-        <div className="gallery-col">
-          <img className="" src={PropertyGallery1} alt="property" />
-        </div>
-        <div className="gallery-col">
-          <img className="" src={PropertyGallery2} alt="property" />
-        </div>
-        <div className="gallery-col">
-          <img className="" src={PropertyGallery3} alt="property" />
-        </div>
+        <Link to="/" className="gallery-col">
+          <img className=" rounded-sm	" src={PropertyGallery1} alt="property" />
+        </Link>
+        <Link to="/" className="gallery-col">
+          <img className=" rounded-sm	" src={PropertyGallery2} alt="property" />
+        </Link>
+        <Link to="/" className="gallery-col">
+          <img className=" rounded-sm	" src={PropertyGallery3} alt="property" />
+        </Link>
         <div className=" gallery-col flex-col">
           <Link
             to="/"
-            className="flex view-all h-full bg-gray-200 items-center justify-center"
+            className="flex view-all h-full primary-gray-color primary-gray-text items-center justify-center font-bold rounded-sm"
           >
             View All
           </Link>
