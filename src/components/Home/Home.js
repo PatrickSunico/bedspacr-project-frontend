@@ -27,7 +27,6 @@ import { ReactComponent as Share } from '../../img/share.svg';
 
 // Components
 import Footer from '../Footer/Footer';
-
 const Home = () => {
   return (
     <div className="landing-container">
@@ -205,7 +204,6 @@ const Home = () => {
       </div>
 
       {/* Sign up Sign In  */}
-
       <div className="py-24 bg-white">
         <div className="bg-gray-50">
           <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex  lg:justify-between">

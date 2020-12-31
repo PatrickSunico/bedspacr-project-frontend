@@ -2,11 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // import ReactDOM from "react-dom";
-
 import './App.scss';
-
 // Components
-// import Home from "components/Home";
+
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';

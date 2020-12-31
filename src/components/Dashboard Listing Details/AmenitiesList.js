@@ -22,7 +22,6 @@ const AmenitiesList = () => {
         <h2 className="text-2xl font-black border-gray-400 border-b mb-4">
           Amenities
         </h2>
-
         <div className="amenities-grid grid grid-cols-4 gap-2  mt-2 mb-2">
           <div className="amenity flex flex-row text-sm">
             <Washer className="mr-2" />
