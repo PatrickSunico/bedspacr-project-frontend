@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './DashboardDetails.scss';
 
 // Link
@@ -32,7 +33,6 @@ const DashboardDetails = () => {
     <div id="main-dashboard h-screen">
       <div className="flex flex-wrap">
         <SideNav />
-
         <div className="main-body w-full bg-gray-200 pl-0 lg:pl-64 min-h-screen">
           {/* px-6 sm:px-10 md:px-20 lg:px-30 */}
           <div className="max-w-max sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mx-auto px-4 sm:px-4 md:px-4 lg:px-20 xl:px-20 py-10">
@@ -98,16 +98,13 @@ const DashboardDetails = () => {
                       {/* End */}
                     </div>
                   </div>
-
                   {/* Gallery Component */}
                   <DashboardImageGallery />
-
                   {/* Amenities */}
                   <AmenitiesList />
                 </div>
-
                 {/* Agent & Tenants Wrapper */}
-                <div className="w-full  agents-tenants-container xl:w-4/12">
+                <div className="w-full agents-tenants-container xl:w-4/12">
                   {/* Agent  */}
                   <DashboardAgentDetails />
                   {/* Tenants */}

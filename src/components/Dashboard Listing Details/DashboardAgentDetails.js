@@ -4,7 +4,6 @@ export const DashboardAgentDetails = () => {
   return (
     <div className="bg-white p-6 rounded-md agents-container">
       <h3 className="text-xl font-semibold text-gray-700">Agents</h3>
-
       <div className="flex flex-col">
         <div className="flex flex-row">
           <div className="placeholder-image">

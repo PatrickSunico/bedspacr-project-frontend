@@ -1,20 +1,17 @@
 import React from 'react';
 import './Home.scss';
-
 import { Link } from 'react-router-dom';
-
 import Landing from '../../img/landing.jpg';
 
 // Images
 // 420x225 3x3 Grid
 import Chicago420 from '../../img/chicago-420x225.jpg';
 
-// // 314 x 520 Long
-
+// 314 x 520 Long
 import CaliforniaLong from '../../img/california-314x520.jpg';
 import DenverLong from '../../img/denver-314x520.jpg';
 
-// // 314x247 Smaller
+// 314x247 Smaller
 import PittsburghSmall from '../../img/pittsburgh-314x247.jpg';
 import DenverSmall from '../../img/denver-314x247.jpg';
 import PittsBurghSmall from '../../img/pittsburgh-314x247.jpg';
@@ -266,7 +263,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

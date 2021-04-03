@@ -1,20 +1,20 @@
-import React from "react";
-import "./PropertyListing.scss";
+import React from 'react';
+import './PropertyListing.scss';
 
 // Global Components
-import SideNav from "../Global/SideNav/SideNav";
-import DashboardSelector from "../Global/DashboardSelector/DashboardSelector";
-import Button from "../Global/Button/Button";
+import SideNav from '../Global/SideNav/SideNav';
+import DashboardSelector from '../Global/DashboardSelector/DashboardSelector';
+import Button from '../Global/Button/Button';
 
 // Property Listing Card
-import PropertyCard from "./PropertyCard";
+import PropertyCard from './PropertyCard';
 
-import { ReactComponent as Plus } from "../../img/plus.svg";
+import { ReactComponent as Plus } from '../../img/plus.svg';
 // Houses
-import House1 from "../../img/house-1.jpg";
-import House2 from "../../img/house-2.jpg";
-import House3 from "../../img/house-3.jpg";
-import House4 from "../../img/house-4.jpg";
+import House1 from '../../img/house-1.jpg';
+import House2 from '../../img/house-2.jpg';
+import House3 from '../../img/house-3.jpg';
+import House4 from '../../img/house-4.jpg';
 
 const PropertyListing = () => {
   return (
