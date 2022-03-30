@@ -9,10 +9,8 @@ const Input = ({
  placeholder,
  required,
  onChange,
+ value,
 }) => {
- const inputChanged = (e) => {
-  onChange(e);
- };
  return (
   <div className="w-full px-3 mb-4">
    {/* if label exists */}
@@ -29,7 +27,8 @@ const Input = ({
     placeholder={placeholder}
     required={required}
     type={type}
-    onChange={(e) => inputChanged(e)}
+    value={value}
+    onChange={onChange}
    />
   </div>
  );

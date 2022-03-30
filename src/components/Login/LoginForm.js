@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.scss";
 
@@ -11,88 +11,110 @@ import Button from "../Global/Button/Button";
 import { ReactComponent as GoogleLogin } from "../../img/google.svg";
 import { ReactComponent as FacebookLogin } from "../../img/facebook.svg";
 
-const onChange = async (event) => {
-  const { target } = event;
-  console.log(target);
-};
-
 const LoginForm = () => {
-  return (
-    <div className="w-full max-w-lg">
-      <form>
-        <div className="flex flex-wrap">
-          <Input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
-            onChange={(e) => onChange(e)}
-            label="Email Address"
-            placeholder="Email"
-            name="email"
-            type="email"
-            required
-          />
+ const [checkLoginState, setCheckLoginState] = useState(false);
+ console.log(checkLoginState);
+ const [formData, setFormData] = useState({
+  email: "",
+  password: "",
+ });
 
-          <Input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
-            label="Password"
-            placeholder="Password"
-            name="password"
-            type="password"
-            onChange={(e) => onChange(e)}
-            required
-          />
+ const { email, password } = formData;
 
-          <div className="w-full flex px-3 mb-4 justify-between">
-            <Checkbox
-              className="mr-2 leading-tight"
-              type="checkbox"
-              name="loggedIn"
-              label="Keep me logged in"
-              onChange={(e) => onChange(e)}
-              disabled={false}
-            />
+ const handleChange = async (event) => {
+  const { value, name } = event.target;
 
-            <Link
-              to="/"
-              className="md:w-1/2 block text-gray-500 font-bold text-right"
-            >
-              <span className="text-sm primary-color-text font-thin">
-                Forgot Password
-              </span>
-            </Link>
-          </div>
+  setFormData((prevState) => ({
+   ...prevState,
+   [name]: value,
+  }));
+ };
 
-          <div className="w-full px-3 mb-4">
-            <Button className="h-12 w-full text-white font-bold py-3 px-3 rounded login-button primary-color-bg login-button">
-              Login
-            </Button>
-          </div>
-        </div>
-      </form>
+ const handleSubmit = async (event) => {
+  event.preventDefault();
+  console.log(formData);
+ };
 
-      <div className="w-full px-3 mb-4">
-        <Button className="h-12 w-full py-3 px-3 rounded inline-flex items-center bg-white">
-          <GoogleLogin />
-          <span className="flex-1 mr-4 text-gray-800">Login to Google</span>
-        </Button>
-      </div>
+ return (
+  <div className="w-full max-w-lg">
+   <form onSubmit={handleSubmit}>
+    <div className="flex flex-wrap">
+     <Input
+      className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
+      onChange={handleChange}
+      label="Email Address"
+      placeholder="Email"
+      name="email"
+      type="email"
+      value={email}
+      required
+     />
 
-      <div className="w-full px-3 mb-4">
-        <Button className="h-12 w-full py-3 px-3 rounded inline-flex items-center bg-white">
-          <FacebookLogin />
-          <span className="flex-1 mr-4 text-gray-800">Login to Facebook</span>
-        </Button>
-      </div>
+     <Input
+      className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
+      label="Password"
+      placeholder="Password"
+      name="password"
+      type="password"
+      onChange={handleChange}
+      value={password}
+      autocomplete="current-password"
+      required
+     />
 
-      <div className="w-full px-3 mb-4 divider">OR</div>
+     <div className="w-full flex px-3 mb-4 justify-between">
+      <Checkbox
+       className="mr-2 leading-tight"
+       type="checkbox"
+       name="loggedIn"
+       label="Keep me logged in"
+       checked={checkLoginState}
+       onChange={(e) => setCheckLoginState(e.target.checked)}
+       disabled={false}
+      />
 
-      <p className="w-full text-center register-link">
-        Dont have an account?
-        <Link to="/register" className=" ml-2 underline primary-color-text">
-          Register
-        </Link>
-      </p>
+      <Link
+       to="/"
+       className="md:w-1/2 block text-gray-500 font-bold text-right"
+      >
+       <span className="text-sm primary-color-text font-thin">
+        Forgot Password
+       </span>
+      </Link>
+     </div>
+
+     <div className="w-full px-3 mb-4">
+      <Button className="h-12 w-full text-white font-bold py-3 px-3 rounded login-button primary-color-bg login-button">
+       Login
+      </Button>
+     </div>
     </div>
-  );
+   </form>
+
+   <div className="w-full px-3 mb-4">
+    <Button className="h-12 w-full py-3 px-3 rounded inline-flex items-center bg-white">
+     <GoogleLogin />
+     <span className="flex-1 mr-4 text-gray-800">Login to Google</span>
+    </Button>
+   </div>
+
+   <div className="w-full px-3 mb-4">
+    <Button className="h-12 w-full py-3 px-3 rounded inline-flex items-center bg-white">
+     <FacebookLogin />
+     <span className="flex-1 mr-4 text-gray-800">Login to Facebook</span>
+    </Button>
+   </div>
+
+   <div className="w-full px-3 mb-4 divider">OR</div>
+
+   <p className="w-full text-center register-link">
+    Dont have an account?
+    <Link to="/register" className=" ml-2 underline primary-color-text">
+     Register
+    </Link>
+   </p>
+  </div>
+ );
 };
 
 export default LoginForm;

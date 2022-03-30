@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./Register.scss";
 
@@ -13,22 +13,46 @@ import { ReactComponent as GoogleLogin } from "../../img/google.svg";
 import { ReactComponent as FacebookLogin } from "../../img/facebook.svg";
 
 const RegisterForm = () => {
- const onChange = async (event) => {
-  // const { target } = event;
-  // console.log(target);
+ const [checkLoginState, setCheckLoginState] = useState(false);
+ console.log(checkLoginState);
+ const [formData, setFormData] = useState({
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+  repeat_password: "",
+ });
+
+ const { first_name, last_name, email, password, repeat_password } = formData;
+ const handleChange = async (event) => {
+  const { value, name } = event.target;
+
+  setFormData((prevState) => ({
+   ...prevState,
+   [name]: value,
+  }));
  };
+
+ //  setLoginState({ ...loginState, [event.target.name]: value });
+
+ const handleSubmit = (event) => {
+  event.preventDefault();
+  console.log(formData);
+ };
+
  return (
   <div className="w-full max-w-lg">
-   <form>
+   <form onSubmit={handleSubmit}>
     <div className="flex flex-wrap">
      <div className="flex flex-row w-full justify-between">
       <Input
        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"
-       onChange={(e) => onChange(e)}
+       onChange={handleChange}
        label="First Name"
        placeholder="First Name"
        name="first_name"
        type="text"
+       value={first_name}
        required
       />
 
@@ -38,7 +62,8 @@ const RegisterForm = () => {
        placeholder="Last Name"
        name="last_name"
        type="text"
-       onChange={(e) => onChange(e)}
+       onChange={handleChange}
+       value={last_name}
        required
       />
      </div>
@@ -49,7 +74,8 @@ const RegisterForm = () => {
       placeholder="Email Address"
       name="email"
       type="email"
-      onChange={(e) => onChange(e)}
+      value={email}
+      onChange={handleChange}
       required
      />
 
@@ -59,7 +85,9 @@ const RegisterForm = () => {
       placeholder="Password"
       name="password"
       type="password"
-      onChange={(e) => onChange(e)}
+      value={password}
+      onChange={handleChange}
+      autocomplete="current-password"
       required
      />
 
@@ -69,7 +97,9 @@ const RegisterForm = () => {
       placeholder="Confirm Password"
       name="repeat_password"
       type="password"
-      onChange={(e) => onChange(e)}
+      value={repeat_password}
+      onChange={handleChange}
+      autocomplete="current-password"
       required
      />
 
@@ -77,9 +107,10 @@ const RegisterForm = () => {
       <Checkbox
        className="mr-2 leading-tight"
        type="checkbox"
-       name="loggedIn"
        label="Keep me logged in"
-       onChange={(e) => onChange(e)}
+       //    onChange={(e) => setLoginState(e.currentTarget.checked)}
+       checked={checkLoginState}
+       onChange={(e) => setCheckLoginState(e.target.checked)}
        disabled={false}
       />
      </div>

@@ -20,18 +20,10 @@ const App = () => {
    <div className="container-padding">
     <Routes>
      <Route exact path="/" element={<Home />} />
-     <Route exact path="/register" element={<Register />} />
-     <Route exact path="/login" element={<Login />} />
-     <Route
-      exact
-      path="/dashboard/property-listings"
-      element={<PropertyListing />}
-     />
-     <Route
-      exact
-      path="/dashboard/property-details"
-      element={<DashboardDetails />}
-     />
+     <Route path="/register" element={<Register />} />
+     <Route path="/login" element={<Login />} />
+     <Route path="/dashboard/property-listings" element={<PropertyListing />} />
+     <Route path="/dashboard/property-details" element={<DashboardDetails />} />
     </Routes>
    </div>
   </Router>
