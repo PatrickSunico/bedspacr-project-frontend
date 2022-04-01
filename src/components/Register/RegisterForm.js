@@ -28,7 +28,6 @@ const RegisterForm = () => {
  //  const data = useSelector(authData);
 
  const [checkLoginState, setCheckLoginState] = useState(false);
- console.log(checkLoginState);
  const [formData, setFormData] = useState({
   first_name: "",
   last_name: "",
@@ -52,22 +51,17 @@ const RegisterForm = () => {
 
  const handleSubmit = async (event) => {
   event.preventDefault();
-  console.log(formData);
 
-  if (password !== repeat_password) {
-   toast.error("Passwords do not match");
-  } else {
-   const userData = {
-    first_name,
-    last_name,
-    email,
-    password,
-   };
+  const userData = {
+   first_name,
+   last_name,
+   email,
+   password,
+   repeat_password,
+  };
 
-   // Dispatch the action to the thunk async function
-   const result = await dispatch(registerUser(userData));
-   console.log(result);
-  }
+  // Dispatch the action to the thunk async function
+  const result = await dispatch(registerUser(userData));
  };
 
  return (

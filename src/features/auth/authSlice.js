@@ -18,7 +18,7 @@ export const registerUser = createAsyncThunk(
   try {
    return await authService.register(user);
   } catch (error) {
-   console.log(error);
+   //  console.log(error);
    return thunkAPI.rejectWithValue("Error");
   }
  }
@@ -40,7 +40,7 @@ export const authSlice = createSlice({
  extraReducers: (builder) => {
   builder
    .addCase(registerUser.pending, (state) => {
-    console.log("Fetching Details Pending");
+    // console.log("Fetching Details Pending");
     state.isLoading = true;
    })
    .addCase(registerUser.fulfilled, (state, { payload }) => {
