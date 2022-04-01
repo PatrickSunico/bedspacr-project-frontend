@@ -1,5 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
+// Redux Toolkit Slice and Reducer
+import { registerUser, authSlice } from "../../features/auth/authSlice";
+
+// SCSS
 import "./Register.scss";
 
 // Form Components
@@ -13,6 +20,13 @@ import { ReactComponent as GoogleLogin } from "../../img/google.svg";
 import { ReactComponent as FacebookLogin } from "../../img/facebook.svg";
 
 const RegisterForm = () => {
+ // Retrieve Data
+ const navigate = useNavigate();
+ const dispatch = useDispatch();
+
+ // destructure the states
+ //  const data = useSelector(authData);
+
  const [checkLoginState, setCheckLoginState] = useState(false);
  console.log(checkLoginState);
  const [formData, setFormData] = useState({
@@ -24,6 +38,7 @@ const RegisterForm = () => {
  });
 
  const { first_name, last_name, email, password, repeat_password } = formData;
+
  const handleChange = async (event) => {
   const { value, name } = event.target;
 
@@ -35,9 +50,24 @@ const RegisterForm = () => {
 
  //  setLoginState({ ...loginState, [event.target.name]: value });
 
- const handleSubmit = (event) => {
+ const handleSubmit = async (event) => {
   event.preventDefault();
   console.log(formData);
+
+  if (password !== repeat_password) {
+   toast.error("Passwords do not match");
+  } else {
+   const userData = {
+    first_name,
+    last_name,
+    email,
+    password,
+   };
+
+   // Dispatch the action to the thunk async function
+   const result = await dispatch(registerUser(userData));
+   console.log(result);
+  }
  };
 
  return (

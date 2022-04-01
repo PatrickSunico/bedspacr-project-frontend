@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+// Third Party Libraries
+import { ToastContainer } from "react-toastify";
+
 // import ReactDOM from "react-dom";
 import "./App.scss";
 // Components
@@ -14,19 +17,28 @@ import DashboardDetails from "./components/Dashboard Listing Details/DashboardDe
 
 const App = () => {
  return (
-  <Router>
-   <Navbar />
-   {/* <Alert /> */}
-   <div className="container-padding">
-    <Routes>
-     <Route exact path="/" element={<Home />} />
-     <Route path="/register" element={<Register />} />
-     <Route path="/login" element={<Login />} />
-     <Route path="/dashboard/property-listings" element={<PropertyListing />} />
-     <Route path="/dashboard/property-details" element={<DashboardDetails />} />
-    </Routes>
-   </div>
-  </Router>
+  <>
+   <Router>
+    <Navbar />
+    {/* <Alert /> */}
+    <div className="container-padding">
+     <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route
+       path="/dashboard/property-listings"
+       element={<PropertyListing />}
+      />
+      <Route
+       path="/dashboard/property-details"
+       element={<DashboardDetails />}
+      />
+     </Routes>
+    </div>
+   </Router>
+   <ToastContainer />
+  </>
  );
 };
 

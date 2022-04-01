@@ -11,7 +11,7 @@ const initialState = {
  message: "",
 };
 
-// Register User
+// Register User & createAsyncThunk Function handle it in extra reducers
 export const registerUser = createAsyncThunk(
  "auth/register",
  async (user, thunkAPI) => {
@@ -37,10 +37,25 @@ export const authSlice = createSlice({
    state.message = "";
   },
  },
- extraReducers: {
-  [registerUser.pending]: () => {
-   console.log("Fetching User Object");
-  },
+ extraReducers: (builder) => {
+  builder
+   .addCase(registerUser.pending, (state) => {
+    console.log("Fetching Details Pending");
+    state.isLoading = true;
+   })
+   .addCase(registerUser.fulfilled, (state, { payload }) => {
+    //    return {...state, }
+    state.isLoading = false;
+    state.isSuccess = true;
+    state.user = payload;
+   })
+   .addCase(registerUser.rejected, (state, { payload }) => {
+    console.log("Fetch Details Error");
+    state.isLoading = false;
+    state.isError = true;
+    state.message = payload;
+    state.user = null;
+   });
  },
 });
 
@@ -49,3 +64,6 @@ export const { resetForm } = authSlice.actions;
 
 // export reducer
 export default authSlice.reducer;
+
+// export the state that needs to be used
+// export const authData = (state) => state.auth.auth;
