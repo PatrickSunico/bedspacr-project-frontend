@@ -66,7 +66,7 @@ const RegisterForm = () => {
 
  return (
   <div className="w-full max-w-lg">
-   <form onSubmit={handleSubmit}>
+   <form onSubmit={handleSubmit} noValidate>
     <div className="flex flex-wrap">
      <div className="flex flex-row w-full justify-between">
       <Input

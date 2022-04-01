@@ -13,8 +13,12 @@ const register = async (userData) => {
   return response.data;
  } catch (error) {
   if (error.response) {
-   console.log(error.response);
+   const { data } = error.response;
+
+   console.log(data);
+   //    console.log(error.response);
    //    return error.response;
+   //    const error = error.resp
   }
  }
 };
