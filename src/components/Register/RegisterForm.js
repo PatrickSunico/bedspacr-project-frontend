@@ -1,12 +1,13 @@
+// React Utils
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 // Redux Toolkit Slice and Reducer
 import {
  registerUser,
- authSlice,
  authData,
  resetForm,
 } from "../../features/auth/authSlice";
@@ -15,7 +16,6 @@ import {
 import "./Register.scss";
 
 // Form Components
-import { Link } from "react-router-dom";
 import Input from "../Global/Input/Input";
 import Checkbox from "../Global/Checkbox/Checkbox";
 import Button from "../Global/Button/Button";
@@ -26,7 +26,7 @@ import { ReactComponent as GoogleLogin } from "../../img/google.svg";
 import { ReactComponent as FacebookLogin } from "../../img/facebook.svg";
 
 const RegisterForm = () => {
- // Retrieve Data
+ // dispatch and navigate
  const navigate = useNavigate();
  const dispatch = useDispatch();
 
@@ -61,13 +61,12 @@ const RegisterForm = () => {
  const handleChange = async (event) => {
   const { value, name } = event.target;
 
+  // sets data to state
   setFormData((prevState) => ({
    ...prevState,
    [name]: value,
   }));
  };
-
- //  setLoginState({ ...loginState, [event.target.name]: value });
 
  const handleSubmit = async (event) => {
   event.preventDefault();
@@ -80,12 +79,8 @@ const RegisterForm = () => {
    repeat_password,
   };
 
-  // Dispatch the action to the thunk async function
   const result = await dispatch(registerUser(userData));
  };
-
- // if loading show a loader
- //  isLoading ? <Loader/>: "";
 
  return (
   <div className="w-full max-w-lg">
@@ -163,7 +158,7 @@ const RegisterForm = () => {
      </div>
 
      <div className="w-full px-3 mb-4">
-      {!isLoading ? (
+      {isLoading ? (
        <Loader />
       ) : (
        <Button className="h-12 w-full text-white font-bold py-3 px-3 rounded login-button primary-color-bg login-button">

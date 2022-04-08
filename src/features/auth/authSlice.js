@@ -18,8 +18,38 @@ export const registerUser = createAsyncThunk(
   try {
    const response = await authService.register(user);
    return response;
-  } catch (response) {
-   return thunkAPI.rejectWithValue(response.message);
+  } catch (error) {
+   const message =
+    (error.response &&
+     error.response.data &&
+     error.response.data.message &&
+     error.data.message) ||
+    error.message ||
+    error.data.message ||
+    error.toString();
+
+   return thunkAPI.rejectWithValue(message);
+  }
+ }
+);
+// Login User & createAsyncThunk Function handle it in extra reducers
+export const loginUser = createAsyncThunk(
+ "auth/login",
+ async (user, thunkAPI) => {
+  try {
+   const response = await authService.login(user);
+   return response;
+  } catch (error) {
+   const message =
+    (error.response &&
+     error.response.data &&
+     error.response.data.message &&
+     error.data.message) ||
+    error.message ||
+    error.data.message ||
+    error.toString();
+
+   return thunkAPI.rejectWithValue(message);
   }
  }
 );
@@ -39,8 +69,8 @@ export const authSlice = createSlice({
  },
  extraReducers: (builder) => {
   builder
+   // register builders
    .addCase(registerUser.pending, (state) => {
-    // console.log("Fetching Details Pending");
     state.isLoading = true;
    })
    .addCase(registerUser.fulfilled, (state, { payload }) => {
@@ -53,6 +83,22 @@ export const authSlice = createSlice({
     state.isLoading = false;
     state.isError = true;
     state.message = payload;
+    state.user = null;
+   })
+
+   // login builders
+   .addCase(loginUser.pending, (state) => {
+    state.isLoading = true;
+   })
+   .addCase(loginUser.fulfilled, (state, action) => {
+    state.isLoading = false;
+    state.isSuccess = true;
+    state.user = action.payload;
+   })
+   .addCase(loginUser.rejected, (state, action) => {
+    state.isLoading = false;
+    state.isError = true;
+    state.message = action.payload;
     state.user = null;
    });
  },

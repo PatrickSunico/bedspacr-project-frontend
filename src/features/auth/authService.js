@@ -13,24 +13,25 @@ const register = async (userData) => {
   return response.data;
  } catch (error) {
   if (error.response) {
-   const { data } = error.response;
-   throw data.error;
+   throw error.response;
   }
  }
-
 };
 
 const login = async (userData) => {
  const SIGNIN = "api/users/signin";
  try {
   const response = await axios.post(SIGNIN, userData);
-  console.log(response);
+
   if (response.data) {
    localStorage.setItem("user", JSON.stringify(response.data));
   }
   return response.data;
  } catch (error) {
-  console.log(error);
+  if (error.response) {
+   console.log(error.response);
+   throw error.response;
+  }
  }
 };
 

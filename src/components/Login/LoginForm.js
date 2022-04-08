@@ -1,5 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// React Utils
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate, Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
+// Redux Toolkit Slice and Reducer
+import { loginUser, authData, resetForm } from "../../features/auth/authSlice";
+
+// SCSS
 import "./Login.scss";
 
 // Form Components
@@ -12,15 +20,38 @@ import { ReactComponent as GoogleLogin } from "../../img/google.svg";
 import { ReactComponent as FacebookLogin } from "../../img/facebook.svg";
 
 const LoginForm = () => {
+ // dispatch and navigate
+ const navigate = useNavigate();
+ const dispatch = useDispatch();
+
+ // destructure the states
+ const data = useSelector(authData);
+ const { isLoading, isError, isSuccess, message, user } = data;
+
  const [checkLoginState, setCheckLoginState] = useState(false);
- console.log(checkLoginState);
  const [formData, setFormData] = useState({
   email: "",
   password: "",
  });
 
+ // Destructure form data
  const { email, password } = formData;
 
+ // useEffect to watch for state change
+ useEffect(() => {
+  if (isError) {
+   toast.error(message);
+  }
+
+  // if isSuccess or if user objects inside cookie exists
+  if (isSuccess || user) {
+   navigate("/dashboard/property-listings");
+  }
+
+  dispatch(resetForm());
+ }, [user, isError, isSuccess, message, navigate, dispatch]);
+
+ // Form Input change Handler
  const handleChange = async (event) => {
   const { value, name } = event.target;
 
@@ -30,9 +61,16 @@ const LoginForm = () => {
   }));
  };
 
+ // Form Submission Handler
  const handleSubmit = async (event) => {
   event.preventDefault();
-  console.log(formData);
+
+  const userData = {
+   email,
+   password,
+  };
+
+  const result = await dispatch(loginUser(userData));
  };
 
  return (
