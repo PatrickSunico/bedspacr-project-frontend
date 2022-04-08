@@ -16,10 +16,10 @@ export const registerUser = createAsyncThunk(
  "auth/register",
  async (user, thunkAPI) => {
   try {
-   return await authService.register(user);
-  } catch (error) {
-   //  console.log(error);
-   return thunkAPI.rejectWithValue("Error");
+   const response = await authService.register(user);
+   return response;
+  } catch (response) {
+   return thunkAPI.rejectWithValue(response.message);
   }
  }
 );
@@ -50,7 +50,6 @@ export const authSlice = createSlice({
     state.user = payload;
    })
    .addCase(registerUser.rejected, (state, { payload }) => {
-    console.log("Fetch Details Error");
     state.isLoading = false;
     state.isError = true;
     state.message = payload;
@@ -66,4 +65,4 @@ export const { resetForm } = authSlice.actions;
 export default authSlice.reducer;
 
 // export the state that needs to be used
-// export const authData = (state) => state.auth.auth;
+export const authData = (state) => state.auth;

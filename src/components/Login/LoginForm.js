@@ -37,7 +37,7 @@ const LoginForm = () => {
 
  return (
   <div className="w-full max-w-lg">
-   <form onSubmit={handleSubmit}>
+   <form onSubmit={handleSubmit} noValidate>
     <div className="flex flex-wrap">
      <Input
       className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3"

@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 // Redux Toolkit Slice and Reducer
-import { registerUser, authSlice } from "../../features/auth/authSlice";
+import {
+ registerUser,
+ authSlice,
+ authData,
+ resetForm,
+} from "../../features/auth/authSlice";
 
 // SCSS
 import "./Register.scss";
@@ -14,6 +19,7 @@ import { Link } from "react-router-dom";
 import Input from "../Global/Input/Input";
 import Checkbox from "../Global/Checkbox/Checkbox";
 import Button from "../Global/Button/Button";
+import Loader from "../Loader/Loader";
 
 // Logos
 import { ReactComponent as GoogleLogin } from "../../img/google.svg";
@@ -25,7 +31,8 @@ const RegisterForm = () => {
  const dispatch = useDispatch();
 
  // destructure the states
- //  const data = useSelector(authData);
+ const data = useSelector(authData);
+ const { isLoading, isError, isSuccess, message, user } = data;
 
  const [checkLoginState, setCheckLoginState] = useState(false);
  const [formData, setFormData] = useState({
@@ -37,6 +44,19 @@ const RegisterForm = () => {
  });
 
  const { first_name, last_name, email, password, repeat_password } = formData;
+
+ useEffect(() => {
+  if (isError) {
+   toast.error(message);
+  }
+
+  // if isSuccess or if user objects inside cookie exists
+  if (isSuccess || user) {
+   navigate("/dashboard/property-listings");
+  }
+
+  dispatch(resetForm());
+ }, [user, isError, isSuccess, message, navigate, dispatch]);
 
  const handleChange = async (event) => {
   const { value, name } = event.target;
@@ -63,6 +83,9 @@ const RegisterForm = () => {
   // Dispatch the action to the thunk async function
   const result = await dispatch(registerUser(userData));
  };
+
+ // if loading show a loader
+ //  isLoading ? <Loader/>: "";
 
  return (
   <div className="w-full max-w-lg">
@@ -140,9 +163,13 @@ const RegisterForm = () => {
      </div>
 
      <div className="w-full px-3 mb-4">
-      <Button className="h-12 w-full text-white font-bold py-3 px-3 rounded login-button primary-color-bg login-button">
-       Sign Up
-      </Button>
+      {!isLoading ? (
+       <Loader />
+      ) : (
+       <Button className="h-12 w-full text-white font-bold py-3 px-3 rounded login-button primary-color-bg login-button">
+        Sign Up
+       </Button>
+      )}
      </div>
     </div>
    </form>
