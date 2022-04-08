@@ -29,7 +29,6 @@ const login = async (userData) => {
   return response.data;
  } catch (error) {
   if (error.response) {
-   console.log(error.response);
    throw error.response;
   }
  }
