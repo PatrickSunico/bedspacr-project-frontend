@@ -52,12 +52,13 @@ const RegisterForm = () => {
 
   // if isSuccess or if user objects inside cookie exists
   if (isSuccess || user) {
-      navigate("/dashboard/property-listings");
+   navigate("/dashboard/property-listings");
   }
 
   dispatch(resetForm());
  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
+ // Form Input Change Handler
  const handleChange = async (event) => {
   const { value, name } = event.target;
 
@@ -68,6 +69,7 @@ const RegisterForm = () => {
   }));
  };
 
+ // Form Submission Handler
  const handleSubmit = async (event) => {
   event.preventDefault();
 
@@ -150,7 +152,6 @@ const RegisterForm = () => {
        className="mr-2 leading-tight"
        type="checkbox"
        label="Keep me logged in"
-       //    onChange={(e) => setLoginState(e.currentTarget.checked)}
        checked={checkLoginState}
        onChange={(e) => setCheckLoginState(e.target.checked)}
        disabled={false}

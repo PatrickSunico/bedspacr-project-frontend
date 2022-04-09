@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Third Party Libraries
@@ -21,6 +21,7 @@ import DashboardDetails from "./components/Dashboard/DashboardListingDetails/Das
 
 // Utils
 import ProtectedRoutes from "./components/utils/ProtectedRoutes/ProtectedRoutes";
+import PublicRoutes from "./components/utils/PublicRoutes/PublicRoutes";
 import PageNotFound from "./components/utils/PageNotFound/PageNotFound";
 
 const App = () => {
@@ -31,11 +32,12 @@ const App = () => {
     {/* <Alert /> */}
     <div className="container-padding">
      <Routes>
+      {/* Public Routes */}
       <Route exact path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
 
-      {/* Dashboard */}
+      {/* Private Routes */}
 
       <Route path="/" element={<ProtectedRoutes />}>
        <Route
