@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import {
  registerUser,
  authData,
- resetForm,
+ resetState,
 } from "../../features/auth/authSlice";
 
 // SCSS
@@ -55,7 +55,7 @@ const RegisterForm = () => {
    navigate("/dashboard/property-listings");
   }
 
-  dispatch(resetForm());
+  dispatch(resetState());
  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
  // Form Input Change Handler

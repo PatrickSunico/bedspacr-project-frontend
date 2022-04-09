@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Outlet, Navigate, Redirect, useNavigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { authData } from "../../../features/auth/authSlice";
 
 const PublicRoutes = () => {

@@ -55,13 +55,18 @@ export const loginUser = createAsyncThunk(
  }
 );
 
+// Logout Function
+export const logOutUser = createAsyncThunk("auth/logout", async () => {
+ await authService.logout();
+});
+
 // Login User Slice
 export const authSlice = createSlice({
  name: "auth",
  initialState,
  reducers: {
   // reset is a predefined function to reset state to default values
-  resetForm: (state) => {
+  resetState: (state) => {
    state.isLoading = false;
    state.isError = false;
    state.isSuccess = false;
@@ -71,7 +76,7 @@ export const authSlice = createSlice({
  },
  extraReducers: (builder) => {
   builder
-   // register builders
+   // register case
    .addCase(registerUser.pending, (state) => {
     state.isLoading = true;
    })
@@ -89,7 +94,7 @@ export const authSlice = createSlice({
     state.isAuthenticated = false;
    })
 
-   // login builders
+   // login case
    .addCase(loginUser.pending, (state) => {
     state.isLoading = true;
    })
@@ -105,12 +110,17 @@ export const authSlice = createSlice({
     state.message = action.payload;
     state.user = null;
     state.isAuthenticated = false;
+   })
+   // logout case
+   .addCase(logOutUser.fulfilled, (state) => {
+    state.user = null;
+    state.isAuthenticated = false;
    });
  },
 });
 
 // export the action
-export const { resetForm } = authSlice.actions;
+export const { resetState } = authSlice.actions;
 
 // export reducer
 export default authSlice.reducer;

@@ -5,6 +5,10 @@ import "./Navbar.scss";
 import { ReactComponent as BedspacrLogo } from "../../img/bedspacr-logo.svg";
 import { ReactComponent as Search } from "../../img/search.svg";
 
+// Components
+
+import NavbarLinks from "./NavbarLinks/NavbarLinks";
+
 function Navbar() {
  return (
   <nav className="fixed z-50 w-full flex items-center justify-between flex-wrap bg-white p-4 border-b border-gray-200">
@@ -42,38 +46,7 @@ function Navbar() {
      </svg>
     </button>
    </div>
-   <div className="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <div className=" lg:flex-grow">
-     <Link
-      className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-      to="/buy"
-     >
-      Buy
-     </Link>
-
-     <Link
-      className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-      to="/sell"
-     >
-      Sell
-     </Link>
-    </div>
-
-    <div>
-     <Link
-      className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-      to="/login"
-     >
-      Login
-     </Link>
-     <Link
-      className=" block mt-4 lg:inline-block lg:mt-0  mr-4 hover:text-gray-800 nav-links"
-      to="/register"
-     >
-      Signup
-     </Link>
-    </div>
-   </div>
+   <NavbarLinks />
   </nav>
  );
 }

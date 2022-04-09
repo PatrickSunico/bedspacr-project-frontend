@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 // Redux Toolkit Slice and Reducer
-import { loginUser, authData, resetForm } from "../../features/auth/authSlice";
+import { loginUser, authData, resetState } from "../../features/auth/authSlice";
 
 // SCSS
 import "./Login.scss";
@@ -48,7 +48,7 @@ const LoginForm = () => {
    navigate("/dashboard/property-listings");
   }
 
-  dispatch(resetForm());
+  dispatch(resetState());
  }, [user, isError, isSuccess, message, navigate, dispatch]);
 
  // Form Input change Handler
