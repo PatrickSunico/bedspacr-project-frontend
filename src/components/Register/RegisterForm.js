@@ -52,7 +52,7 @@ const RegisterForm = () => {
 
   // if isSuccess or if user objects inside cookie exists
   if (isSuccess || user) {
-   navigate("/dashboard/property-listings");
+      navigate("/dashboard/property-listings");
   }
 
   dispatch(resetForm());
