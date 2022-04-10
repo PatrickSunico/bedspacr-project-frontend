@@ -12,8 +12,8 @@ const register = async (userData) => {
 
   return response.data;
  } catch (error) {
-  if (error.response) {
-   throw error.response;
+  if (error) {
+   throw error;
   }
  }
 };
@@ -28,8 +28,8 @@ const login = async (userData) => {
   }
   return response.data;
  } catch (error) {
-  if (error.response) {
-   throw error.response;
+  if (error) {
+   throw error;
   }
  }
 };

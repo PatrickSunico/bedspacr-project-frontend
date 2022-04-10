@@ -21,13 +21,11 @@ export const registerUser = createAsyncThunk(
    return response;
   } catch (error) {
    const message =
-    (error.response &&
-     error.response.data &&
-     error.response.data.message &&
-     error.data.message) ||
+    (error.response && error.response.data && error.response.data.message) ||
     error.message ||
-    error.data.message ||
     error.toString();
+
+   console.log(error.response);
 
    return thunkAPI.rejectWithValue(message);
   }
@@ -42,14 +40,11 @@ export const loginUser = createAsyncThunk(
    return response;
   } catch (error) {
    const message =
-    (error.response &&
-     error.response.data &&
-     error.response.data.message &&
-     error.data.message) ||
+    (error.response && error.response.data && error.response.data.message) ||
     error.message ||
-    error.data.message ||
     error.toString();
 
+   console.log(error.response);
    return thunkAPI.rejectWithValue(message);
   }
  }

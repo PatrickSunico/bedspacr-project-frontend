@@ -1,7 +1,7 @@
 // React Utils
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
@@ -29,7 +29,8 @@ const RegisterForm = () => {
  // dispatch and navigate
  const navigate = useNavigate();
  const dispatch = useDispatch();
-
+ const location = useLocation();
+ const from = location?.pathname?.from?.pathname || "/";
  // destructure the states
  const data = useSelector(authData);
  const { isLoading, isError, isSuccess, message, user } = data;
@@ -52,7 +53,8 @@ const RegisterForm = () => {
 
   // if isSuccess or if user objects inside cookie exists
   if (isSuccess || user) {
-   navigate("/dashboard/property-listings");
+   navigate(from, { replace: true });
+   //    navigate("/dashboard/property-listings");
   }
 
   dispatch(resetState());
